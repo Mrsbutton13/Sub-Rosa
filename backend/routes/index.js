@@ -1,27 +1,35 @@
 const express = require('express')
 const router = express.Router()
 const apiRouter = require('./api')
-const asyncHandler = require('express-async-handler')
-const { setTokenCookie } = require('../utils/auth')
-const { User } = require('../db/models/user')
-
-// router.get('/set-token-cookie', asyncHandler(async (req, res) => {
-//     const user = await User.findOne({
-//         where: {
-//             username: 'Demo-lition'
-//         }
-//     })
-//     setTokenCookie(res, user)
-//     return res.json({ user })
-// }))
-
-
 
 router.use('/api', apiRouter)
-router.get('/hello/world', function(req, res) {
-    res.cookie('XSRF-TOKEN', req.csrfToken())
-    res.send('Hello World!')
-})
+
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+
+  router.get('/', (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    return res.sendFile(
+      path.resolve(__dirname, '../../frontend', 'build', 'index.html')
+    );
+  });
+
+  router.use(express.static(path.resolve("../frontend/build")));
+
+  router.get(/^(?!\/?api).*/, (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    return res.sendFile(
+      path.resolve(__dirname, '../../frontend', 'build', 'index.html')
+    );
+  });
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  router.get('/api/csrf/restore', (req, res) => {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    return res.json({});
+  });
+}
 
 
 

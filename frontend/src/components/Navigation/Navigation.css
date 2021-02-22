@@ -1,0 +1,30 @@
+.nav {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    width: 100%;
+    max-width: 1715px;
+    margin: auto;
+    padding-left: 22px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    flex-direction: row-reverse;
+    background-color: rgb(160, 34, 11, 0.9);
+}
+
+.sub {
+    background-color: #5e7783;
+    margin: 10px;
+    height: 40px;
+    width: 97px;
+    cursor: default;
+    border-radius: 4px;
+}
+
+.lib {
+    background-color: #d2d6d1;
+    margin: 10px;
+    height: 40px;
+    width: 97px;  
+    border-radius: 4px;  
+}

@@ -1,0 +1,62 @@
+
+.splash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #A0220B;
+    height: 100%;
+    margin-top: 0%;
+}
+
+.Sub-Rosa {
+    margin-top: 100px;
+    margin-bottom: 43px;
+    padding: 0;
+    border: none;
+    height: 83px;
+    font-size: 75px;
+    color: white;
+    font-family: 'Nosifer',
+    cursive;      
+}
+/* .splash-sub-div {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+.splash-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+}
+
+.note {
+    font-size: 1.3rem;
+    width: 300px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: white;
+}
+
+.login button,
+.createA button  {
+    height: 44px;
+    width: 300px;
+}
+
+.login button {
+    background-color: #d2d6d1;
+}
+
+.createA button {
+    background-color: #5e7783;
+}

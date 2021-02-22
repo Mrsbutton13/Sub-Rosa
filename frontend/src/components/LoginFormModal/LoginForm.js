@@ -19,6 +19,9 @@ function LoginForm() {
             if(data && data.errors) setErrors(data.errors)
         })
     }
+    const handleDemoSubmit = () => {
+        dispatch(sessionActions.login({credential: 'Demo-lition', password: 'password'}))
+    }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -45,6 +48,7 @@ function LoginForm() {
                 />
             </label>
             <button type="submit">Log In</button>
+            <button type="button" onClick={handleDemoSubmit}>Demo</button>
         </form>
     )
 }

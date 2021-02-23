@@ -9,7 +9,7 @@ body {
     width: 100vw;
 }
 
-.nav:not(.is_stuck) {
+.nav {
     display: flex;
     align-items: center;
     height: 54px;
@@ -22,6 +22,7 @@ body {
     flex-direction: row-reverse;
     background-color: rgb(255, 255, 255 0.7);
     position: fixed;
+    
 }
 
 .sub {

@@ -1,29 +1,27 @@
 import React from 'react'
 import './SplashLanding.css'
 
+
 function WhatIsSubRosa () {
+
     return (
         <>
           <div className='splash-div2'>
             <h1 className='what-is'>What is Sub-Rosa?</h1>
             <div className='symbols'>
-              <span className='book'>
-                <i id='book-dead' className="fas fa-book-dead"></i>
+            </div>
+            <div className='symbols2'>
+              <span className="s">S</span>
+              <span className='crow'>
+                <i id='crow' className="fas fa-crow"></i>
               </span>
               <span className='crossbones'>
                 <i id='crossbones' className="fas fa-skull-crossbones"></i>
               </span>
-              <span className='moon'>
-                <i id='moon' className="fas fa-cloud-moon"></i>
-              </span>
-            </div>
-            <div className='symbols2'>
-              <span className='crow'>
-                <i id='crow' className="fas fa-crow"></i>
-              </span>
               <span className='ghost'>
                 <i id='ghost' className="fas fa-ghost"></i>
               </span>   
+              <span className="r">R</span>
             </div> 
             <div className='description-div'>
             <h2 className='wanting-more' >Sub-Rosa will leave you wanting more.</h2>

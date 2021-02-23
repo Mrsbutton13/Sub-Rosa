@@ -7,9 +7,11 @@ import './SplashLanding.css'
 import {Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, Move, MoveIn, MoveOut, Sticky, StickyIn, ZoomIn} from 'react-scroll-motion'
 import WhatIsSubRosa from './WhatIsSubRosa'
 import SubRosaIs from './SubRosaIs'
+import JustSignUp from './JustSignUp'
+import Navigation from '../Navigation'
 
 
-function SplashPage({isLoaded} ) {
+function SplashPage({isLoaded}) {
     const sessionUser = useSelector(state => state.session.user)
     const ZoomInScrollOut= batch(StickyIn(), FadeIn(), ZoomIn())
     const FadeUp = batch(Fade(), Move(), Sticky())
@@ -25,10 +27,6 @@ function SplashPage({isLoaded} ) {
     
     return (
         <>
-          <ScrollContainer>
-            <ScrollPage page={0}>
-              <Animator animation={FadeUp}>
-              <div className='splash-container'>
                 <div className='splash-div1'>
                   <h1 className='Sub-Rosa'>Sub-Rosa</h1>
                   <section className='splash-section'>
@@ -42,11 +40,9 @@ function SplashPage({isLoaded} ) {
                     </div>
                   </section>
                 </div>
-              </div>
-              </Animator>
-            </ScrollPage>
+          <ScrollContainer>
             <ScrollPage page={1}>
-              <Animator animation={ZoomInScrollOut}>
+              <Animator animation={batch(ZoomIn(), FadeIn())}>
                 <WhatIsSubRosa/>
               </Animator>
             </ScrollPage>
@@ -55,8 +51,11 @@ function SplashPage({isLoaded} ) {
                 <SubRosaIs />
               </Animator>
             </ScrollPage>
-              <div className='splash-div4'>
-              </div>
+            {/* <ScrollPage page={3}>
+              <Animator animation={batch(MoveIn())} > */}
+                <JustSignUp />
+              {/* </Animator>
+            </ScrollPage> */}
           </ScrollContainer>
         </>
     )

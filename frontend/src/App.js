@@ -5,6 +5,7 @@ import * as sessionActions from './store/session'
 import Navigation from './components/Navigation'
 import SplashPage from './components/SplashLandingPage';
 
+
 function App() {
   const dispatch = useDispatch()
   const [isLoaded, setIsLoaded] = useState(false)
@@ -17,7 +18,7 @@ function App() {
     <Navigation isLoaded={isLoaded} />
     {isLoaded && (
       <Switch>
-        <SplashPage isLoaded={isLoaded} />
+        <SplashPage isLoaded={isLoaded}/>
       </Switch>
       )}
     </>

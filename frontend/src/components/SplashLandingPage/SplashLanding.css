@@ -1,12 +1,44 @@
 
 .splash-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-areas: 
+    "div1"
+    "div2"
+    "div3"
+    "div4";
+}
+.splash-div1{
+    grid-area: div1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: #A0220B;
-    height: 100%;
-    margin-top: 0%;
+    width: 100vw;
+    height: 100vh;
+}
+.splash-div2{
+    grid-area: div2;
+    background-color: #5e7783 ;
+    width: 100vw;
+    height: 100vh;
+
+}
+.splash-div3 {
+    grid-area: div3;
+    background-color: #5e7783;
+    width: 100vw;
+    height: 100vh;
+
+}
+.splash-div4 {
+    grid-area: div4;
+    background-color: #5e7783;
+    width: 100vw;
+    height: 100vh;
+
 }
 
 .Sub-Rosa {
@@ -20,14 +52,6 @@
     font-family: 'Nosifer',
     cursive;      
 }
-/* .splash-sub-div {
-    height: 300px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-} */
 
 .splash-section {
     display: flex;
@@ -60,3 +84,93 @@
 .createA button {
     background-color: #5e7783;
 }
+
+.what-is{
+    color: white;
+    text-align: center;
+    height: 100px;
+    padding-top: 100px;
+    font-family: 'Nosifer',
+    cursive;
+}
+
+.symbols{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-direction: column;
+    position: relative;
+    border-radius: 180px;
+    margin-left: 40%;
+    height: 350px;
+    width: 350px;      
+}
+
+.symbols2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    position: absolute;
+    border-radius: 180px;
+    margin-left: 40%;
+    height: 350px;
+    width: 350px;
+    bottom: 338px;
+    z-index: 10;
+}
+.book,
+.crow,
+.moon,
+.ghost,
+.crossbones{
+    height: 60px;
+    width: 60px;
+    font-size: 60px;
+}
+
+.book {
+    position: relative;
+    margin-top: 30px;
+}
+
+.moon {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.crow {
+    position: relative;
+    margin-left: 30px;
+}
+
+.ghost {
+    position: relative;
+    margin-right: 30px;
+}
+
+.description-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.wanting-more{
+    color: white;
+    font-size: 25px;
+    font-family: 'Nosifer',
+    cursive;
+    margin-top: 5%;
+}
+
+.description {
+    color: white;
+    font-size: 20px;
+}
+
+

@@ -1,15 +1,27 @@
-.nav {
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.nav:not(.is_stuck) {
     display: flex;
     align-items: center;
     height: 54px;
     width: 100%;
-    max-width: 1715px;
     margin: auto;
+    margin-right: 3px;
     padding-left: 22px;
     padding-right: 20px;
     box-sizing: border-box;
     flex-direction: row-reverse;
-    background-color: rgb(160, 34, 11, 0.9);
+    background-color: rgb(255, 255, 255 0.7);
+    position: fixed;
 }
 
 .sub {

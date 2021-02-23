@@ -1,5 +1,4 @@
 import React from 'react'
-import {Animator, ScrollContainer, ScrollPage} from 'react-scroll-motion'
 import './SplashLanding.css'
 
 function WhatIsSubRosa () {

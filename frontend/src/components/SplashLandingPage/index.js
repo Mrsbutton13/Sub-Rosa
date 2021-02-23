@@ -6,6 +6,7 @@ import SignupFormModal from "../SignupFromModal"
 import './SplashLanding.css'
 import {Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, Move, MoveIn, MoveOut, Sticky, StickyIn, ZoomIn} from 'react-scroll-motion'
 import WhatIsSubRosa from './WhatIsSubRosa'
+import SubRosaIs from './SubRosaIs'
 
 
 function SplashPage({isLoaded} ) {
@@ -49,8 +50,11 @@ function SplashPage({isLoaded} ) {
                 <WhatIsSubRosa/>
               </Animator>
             </ScrollPage>
-              <div className='splash-div3'>
-              </div>
+            <ScrollPage page={2}>
+              <Animator animation={FadeIn()} >
+                <SubRosaIs />
+              </Animator>
+            </ScrollPage>
               <div className='splash-div4'>
               </div>
           </ScrollContainer>

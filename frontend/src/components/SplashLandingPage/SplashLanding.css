@@ -28,7 +28,7 @@
 }
 .splash-div3 {
     grid-area: div3;
-    background-color: #5e7783;
+    background-color: #193540;
     width: 100vw;
     height: 100vh;
 
@@ -171,6 +171,27 @@
 .description {
     color: white;
     font-size: 20px;
+    position: relative;
 }
 
+.sri{
+   color: white;
+   text-align: center;
+   font-size: 30px;
+   height: 100px;
+   padding-top: 100px;
+   font-family: 'Nosifer',
+   cursive;
+   position: relative;
+}
 
+.sri-description{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 50%;
+}

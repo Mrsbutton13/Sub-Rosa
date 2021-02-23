@@ -10,26 +10,29 @@ function Navigation ({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user)
     
     let sessionLinks
+    
     if(sessionUser) {
         sessionLinks = (
-            <ProfileButton user={sessionUser} />
+            <>
+                <NavLink to='/Dashboard'>Home</NavLink>
+                <ProfileButton user={sessionUser} />
+            </>
         )
     } else {
         sessionLinks = (
             <>
-            <LoginFormModal />
-            <SignupFromModal />
+                <LoginFormModal />
+                <SignupFromModal />
             </>
         )
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink style={{marginRight:10}} exact to='/'>Home</NavLink>
+        <div className='nav'>
+            <div>
                 {isLoaded && sessionLinks}
-            </li>
-        </ul>
+            </div>
+        </div>
     )
 }
 

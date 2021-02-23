@@ -1,0 +1,43 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    width: 100%;
+    margin: auto;
+    margin-right: 3px;
+    padding-left: 22px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    flex-direction: row-reverse;
+    background-color: rgb(255, 255, 255 0.7);
+    position: fixed;
+    
+}
+
+.sub {
+    background-color: #5e7783;
+    margin: 10px;
+    height: 40px;
+    width: 97px;
+    cursor: default;
+    border-radius: 4px;
+}
+
+.lib {
+    background-color: #d2d6d1;
+    margin: 10px;
+    height: 40px;
+    width: 97px;  
+    border-radius: 4px;  
+}

@@ -1,0 +1,236 @@
+
+.splash-div1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #A0220B;
+    width: 100vw;
+    height: 100vh;
+}
+.splash-div2{
+    background-color: #5e7783 ;
+    width: 100vw;
+    height: 100vh;
+
+}
+.splash-div3 {
+    background-color: #193540;
+    width: 100vw;
+    height: 100vh;
+
+}
+.splash-div4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #e5232e;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.Sub-Rosa {
+    margin-top: 100px;
+    margin-bottom: 43px;
+    padding: 0;
+    border: none;
+    height: 83px;
+    font-size: 75px;
+    color: white;
+    font-family: 'Nosifer',
+    cursive;      
+}
+
+.splash-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+}
+
+.note {
+    font-size: 1.3rem;
+    width: 300px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: white;
+}
+
+.login button,
+.createA button  {
+    height: 44px;
+    width: 300px;
+}
+
+.login button {
+    background-color: #d2d6d1;
+}
+
+.createA button {
+    background-color: #5e7783;
+}
+
+.what-is{
+    color: white;
+    text-align: center;
+    height: 100px;
+    padding-top: 100px;
+    font-family: 'Nosifer',
+    cursive;
+}
+
+.symbols{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    position: relative;
+    border-radius: 180px;
+    margin-left: 39%;
+    height: 350px;
+    width: 350px;      
+    border: transparent;
+}
+
+.symbols2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        position: absolute;
+        border-radius: 180px;
+        margin-left: 27%;
+        height: 350px;
+        width: 700px;
+        bottom: 312px;
+        z-index: 10;
+       
+}
+.crow,
+.ghost,
+.crossbones{
+    height: 60px;
+    width: 60px;
+    font-size: 60px;
+}
+.crossbones{
+    margin-left: 25px ;
+}
+.crow {
+    position: relative;
+    
+}
+
+.ghost {
+    position: relative;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.s,
+.r {
+   color: white;
+   font-size:200px;
+   font-family: 'Nosifer',
+   cursive;
+}
+.s{
+    margin-left: 60px;
+}
+.r {
+    margin-right: 60px;
+}
+.description-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.wanting-more{
+    color: white;
+    font-size: 25px;
+    font-family: 'Nosifer',
+    cursive;
+    margin-top: 5%;
+}
+
+.description {
+    color: white;
+    font-size: 20px;
+    position: relative;
+}
+
+.sri{
+   color: white;
+   text-align: center;
+   font-size: 30px;
+   height: 100px;
+   padding-top: 100px;
+   font-family: 'Nosifer',
+   cursive;
+   position: relative;
+}
+
+.sri-description{
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: 50%;
+}
+
+.Sub-Rosa2 {
+    margin-top: 100px;
+    margin-bottom: 43px;
+    padding: 0;
+    border: none;
+    height: 83px;
+    font-size: 75px;
+    color: white;
+    font-family: 'Nosifer',
+        cursive;
+}
+.splash-section2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+}
+
+.note2 {
+    font-size: 1.3rem;
+    width: 300px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: white;
+}
+
+.login2 button,
+.createA2 button {
+    height: 44px;
+    width: 300px;
+}
+
+.login2 button {
+    background-color: #d2d6d1;
+}
+
+.createA2 button {
+    background-color: #5e7783;
+}

@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/Mrsbutton13/authenticat_me/issues"
   },
-  "homepage": "https://github.com/Mrsbutton13/authenticat_me#readme"
+  "homepage": "https://github.com/Mrsbutton13/authenticat_me#readme",
+  "dependencies": {
+    "react-animations": "^1.0.0",
+    "react-scroll-motion": "^0.2.1"
+  }
 }

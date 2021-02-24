@@ -8,8 +8,6 @@ function WhatIsSubRosa () {
         <>
           <div className='splash-div2'>
             <h1 className='what-is'>What is Sub-Rosa?</h1>
-            <div className='symbols'>
-            </div>
             <div className='symbols2'>
               <span className="s">S</span>
               <span className='crow'>

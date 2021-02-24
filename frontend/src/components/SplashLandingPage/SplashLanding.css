@@ -9,6 +9,10 @@
     height: 100vh;
 }
 .splash-div2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: #5e7783 ;
     width: 100vw;
     height: 100vh;
@@ -84,31 +88,16 @@
     cursive;
 }
 
-.symbols{
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    flex-direction: column;
-    position: relative;
-    border-radius: 180px;
-    margin-left: 39%;
-    height: 350px;
-    width: 350px;      
-    border: transparent;
-}
 
 .symbols2 {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: row;
-        position: absolute;
         border-radius: 180px;
-        margin-left: 27%;
         height: 350px;
         width: 700px;
         bottom: 312px;
-        z-index: 10;
        
 }
 .crow,
@@ -154,6 +143,7 @@
     text-align: center;
     margin-left: 30%;
     margin-right: 30%;
+    margin-bottom: 10%;
 }
 
 .wanting-more{

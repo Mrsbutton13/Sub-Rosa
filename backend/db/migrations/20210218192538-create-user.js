@@ -21,6 +21,11 @@ module.exports = {
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
+      
+      },
+      profileImgUrl: {
+        type: Sequelize.STRING,
+        defaultValue: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
       },
       createdAt: {
         allowNull: false,

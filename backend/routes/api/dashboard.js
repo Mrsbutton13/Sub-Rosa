@@ -5,11 +5,18 @@ const { restoreUser } = require('../../utils/auth')
 const router = express.Router()
 
 router.get('/', asyncHandler(async (req, res) => {
-    const dashboards = await Dashboard.findAll({
-        userId: res.locals.user.id
+    const dashboards = await Dashboard.findByPk({
+        where: {
+            userId: res.locals.user.id
+        },
+        include: [Blog, Post]
     })
-    res.json({dashboards})
+    
+    res.render('dashboard', {dashboards})   
 }))
+
+
+
 
 
 module.exports = router

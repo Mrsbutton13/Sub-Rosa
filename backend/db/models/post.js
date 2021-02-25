@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     dashboardId: DataTypes.INTEGER
   }, {});
   Post.associate = function(models) {
-    // associations can be defined here
+    Post.belongsTo(models.Dashboard, {foreignKey: 'dashboardId'})
+    Post.belongsTo(models.Blog, {foreignKey: 'blogId'})
+    Post.belongsTo(models.User, {foreignKey: 'userId'})
+    Post.hasMany(models.Comment, {foreignKey: 'postId'})
   };
   return Post;
 };

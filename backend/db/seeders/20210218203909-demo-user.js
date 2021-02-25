@@ -9,7 +9,8 @@ module.exports = {
         email: 'demo@user.io',
         username: 'Demo-lition',
         hashedPassword: bcrypt.hashSync('password'),
-        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png',
+        
       },
       {
         email: faker.internet.email(),

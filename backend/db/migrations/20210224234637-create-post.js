@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       textTitle: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(200)
       },
       textBody: {
         type: Sequelize.TEXT
@@ -18,13 +18,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       videoText: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(200)
       },
       link: {
         type: Sequelize.STRING
       },
       linkText: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT(200)
       },
       imgSrc: {
         type: Sequelize.STRING
@@ -33,13 +33,19 @@ module.exports = {
         type: Sequelize.TEXT
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'Users'},
       },
       blogId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'Blogs'},
       },
       dashboardId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'Dashboards'},
       },
       createdAt: {
         allowNull: false,

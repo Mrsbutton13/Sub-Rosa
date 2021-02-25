@@ -1,31 +1,34 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Blogs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true,
+      title: {
+        type: Sequelize.STRING(30)
       },
-      email: {
-        type: Sequelize.STRING(256),
-        allowNull: false,
-        unique: true
+      description: {
+        type: Sequelize.TEXT
       },
-      hashedPassword: {
-        type: Sequelize.STRING.BINARY,
-        allowNull: false,
-      
+      backgroundImage: {
+        type: Sequelize.STRING
       },
-      profileImgUrl: {
-        type: Sequelize.STRING,
-        defaultValue: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      profileImage: {
+        type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'Users'},
+      },
+      dashboardId: {
+        type: Sequelize.INTEGER,
+        references: {model: 'Dashboards'},
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -40,6 +43,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Blogs');
   }
 };

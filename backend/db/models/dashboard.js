@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {});
   Dashboard.associate = function(models) {
-    // associations can be defined here
+    Dashboard.belongsTo(models.User, {foreignKey: 'userId'})
+    Dashboard.hasMany(models.Blog, {foreignKey: 'dashboardId'})
+    Dashboard.hasMany(models.Post, {foreignKey: 'dashboardId'})
   };
   return Dashboard;
 };

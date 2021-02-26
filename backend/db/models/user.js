@@ -50,6 +50,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   }, {});
+  User.associate = function(models) {
+    const columnMapping = {
+      through: 'Follow',
+      otherKey: 'blogId',
+      foreignKey: 'userId'
+    }
+    User.belongsToMany(models.Blog, columnMapping)
+    User.hasOne(models.Dashboard, {foreignKey: 'userId'})
+    User.hasMany(models.Post, {foreignKey: 'userId'})
+    User.hasMany(models.Comment, {foreignKey: 'userId'})
+    
+  };
+  
   User.prototype.toSafeObject = function () {
     const { id, username, email } = this
     return { id, username, email }
@@ -74,6 +87,7 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id)
     }
   }
+
   User.signup = async function ({ username, email, password, profileImgUrl }) {
     const hashedPassword = bcrypt.hashSync(password)
     const user = await User.create({
@@ -84,18 +98,7 @@ module.exports = (sequelize, DataTypes) => {
     })
     return await User.scope('currentUser').findByPk(user.id)
   }
-  User.associate = function(models) {
-    const columnMapping = {
-      through: 'Follow',
-      otherKey: 'blogId',
-      foreignKey: 'userId'
-    }
-    User.belongsToMany(models.Blog, columnMapping)
-    User.hasOne(models.Dashboard, {foreignKey: 'userId'})
-    User.hasMany(models.Post, {foreignKey: 'userId'})
-    User.hasMany(models.Comment, {foreignKey: 'userId'})
-    
-  };
+
 
   return User;
 };

@@ -13,13 +13,11 @@ import Navigation from '../Navigation'
 
 function SplashPage({isLoaded}) {
     const sessionUser = useSelector(state => state.session.user)
-    const ZoomInScrollOut= batch(StickyIn(), FadeIn(), ZoomIn())
-    const FadeUp = batch(Fade(), Move(), Sticky())
 
     let login 
     let createA
     if(sessionUser) {
-        return <Redirect to='/Dashboard'/>
+        return <Redirect to='/dashboard'/>
     } else {
         login = <LoginFormModal />
         createA = <SignupFormModal />

@@ -19,7 +19,8 @@ function LoginForm() {
             if(data && data.errors) setErrors(data.errors)
         })
     }
-    const handleDemoSubmit = () => {
+    const handleDemoSubmit = (e) => {
+        e.preventDefault()
         dispatch(sessionActions.login({credential: 'Demo-lition', password: 'password'}))
     }
 

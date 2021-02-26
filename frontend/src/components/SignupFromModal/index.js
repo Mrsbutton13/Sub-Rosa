@@ -7,7 +7,7 @@ function SignupFormModal() {
     const [showModal, setShowModal] = useState(false)
 
     return (
-        <>
+        <> 
             <button className='sub' onClick={() => setShowModal(true)}>Get Started</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

@@ -30,7 +30,11 @@ function SignupForm () {
 
      const updateFile = (e) => {
     const file = e.target.files[0];
-    if (file) setImage(file);
+    if (file) {
+        setImage(file);
+    } else {
+        setImage('https://mysubrosa.s3.amazonaws.com/1614135914592.png')
+    }
   };
 
     return (

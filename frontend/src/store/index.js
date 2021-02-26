@@ -1,9 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import blogReducer from './blog';
+import dashboardReducer from './dashboard';
+import postReducer from './post';
 import sessionReducer from './session';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  dashboards: dashboardReducer,
+  posts: postReducer,
+  blogs: blogReducer,
 })
 
 

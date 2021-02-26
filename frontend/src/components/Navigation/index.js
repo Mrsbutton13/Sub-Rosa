@@ -14,7 +14,7 @@ function Navigation ({ isLoaded }) {
     if(sessionUser) {
         sessionLinks = (
             <>
-                <NavLink to='/Dashboard'>Home</NavLink>
+                <NavLink to='/dashboard'>Home</NavLink>
                 <ProfileButton user={sessionUser} />
             </>
         )

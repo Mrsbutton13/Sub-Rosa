@@ -51,12 +51,6 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   User.associate = function(models) {
-    const columnMapping = {
-      through: 'Follow',
-      otherKey: 'blogId',
-      foreignKey: 'userId'
-    }
-    User.belongsToMany(models.Blog, columnMapping)
     User.hasOne(models.Dashboard, {foreignKey: 'userId'})
     User.hasMany(models.Post, {foreignKey: 'userId'})
     User.hasMany(models.Comment, {foreignKey: 'userId'})

@@ -7,8 +7,6 @@ module.exports = (sequelize, DataTypes) => {
  
   Dashboard.associate = function(models) {
     Dashboard.belongsTo(models.User, {foreignKey: 'userId'})
-    Dashboard.hasMany(models.Blog, {foreignKey: 'dashboardId'})
-    Dashboard.hasMany(models.Post, {foreignKey: 'dashboardId'})
   };
   return Dashboard;
 };

@@ -1,11 +1,12 @@
-import React, {useContext, useEffect, useRef, useState} from 'react'
-import ReactDom from 'react-dom'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import ReactDOM from 'react-dom'
 
 const ModalContext = React.createContext()
 
 export function ModalProvider({ children }) {
     const modalRef = useRef()
     const [value, setValue] = useState()
+
     useEffect(() => {
         setValue(modalRef.current)
     }, [])
@@ -15,21 +16,22 @@ export function ModalProvider({ children }) {
             <ModalContext.Provider value={value}>
                 {children}
             </ModalContext.Provider>
-            <div ref={modalRef}/>
+            <div ref={modalRef} />
         </>
     )
 }
 
-export function BlogModal({ onClose, children }) {
+export function Modal({ onClose, children }) {
     const modalNode = useContext(ModalContext)
     if(!modalNode) return null
 
-    return ReactDom.createPortal(
-        <div id='blog-modal'>
-            <div id='blog-modal-background' onClick={onClose}/>
-            <div id='blog-modal-content'>
-                {children}
-            </div>
-        </div>
+    return ReactDOM.createPortal(
+       <div id='modal'>
+           <div id='modal-background' onClick={onClose} />
+           <div id='modal-content'>
+               {children}
+           </div>
+       </div>,
+       modalNode
     )
 }

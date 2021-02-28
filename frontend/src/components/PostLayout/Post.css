@@ -1,0 +1,60 @@
+.individual{
+        margin-top: 10px;
+        max-height: 870px;
+        max-width: 500px;
+        overflow: scroll;
+       
+}
+.individual::-webkit-scrollbar{
+    display: none;
+}
+
+.post-body {
+    background-color: #d2d6d1;
+    min-height: 300px;
+    width: 300px;
+    hyphens: auto;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Akaya Telivigala',
+    cursive;
+}
+
+.pb {
+  background-color: #d2d6d1;
+  min-height: 300px;
+  width: 500px;
+  text-align: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.username-link {
+    background-color: #d2d6d1;
+    font-family: 'Akaya Telivigala',
+    cursive; 
+    margin-left: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.username {
+    width: 500px;
+    height: 50px;
+    background-color: #d2d6d1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+a:hover {
+    transform: scale(1.2);
+}
+
+.img{
+    height: 50px;
+    width: 50px;
+}

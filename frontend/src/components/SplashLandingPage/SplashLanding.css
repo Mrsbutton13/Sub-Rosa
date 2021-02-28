@@ -54,6 +54,8 @@
     flex-direction: column;
     position: relative;
     text-align: center;
+    font-family: 'Akaya Telivigala',
+    cursive;
 }
 
 .note {
@@ -63,12 +65,17 @@
     line-height: 1.5;
     text-align: center;
     color: white;
+    font-family: 'Akaya Telivigala',
+    cursive;
 }
 
 .login button,
 .createA button  {
     height: 44px;
     width: 300px;
+    font-family: 'Akaya Telivigala',
+    cursive;
+    font-size: 30px;
 }
 
 .login button {
@@ -144,6 +151,8 @@
     margin-left: 30%;
     margin-right: 30%;
     margin-bottom: 10%;
+    font-family: 'Akaya Telivigala',
+    cursive;
 }
 
 .wanting-more{
@@ -158,6 +167,8 @@
     color: white;
     font-size: 20px;
     position: relative;
+    font-family: 'Akaya Telivigala',
+    cursive;
 }
 
 .sri{
@@ -209,12 +220,17 @@
     line-height: 1.5;
     text-align: center;
     color: white;
+    font-family: 'Akaya Telivigala',
+    cursive;
 }
 
 .login2 button,
 .createA2 button {
     height: 44px;
     width: 300px;
+    font-family: 'Akaya Telivigala',
+    cursive;
+    font-size: 30px;
 }
 
 .login2 button {

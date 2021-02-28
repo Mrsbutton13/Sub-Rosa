@@ -5,10 +5,6 @@ import * as sessionActions from './store/session'
 import Navigation from './components/Navigation'
 import SplashPage from './components/SplashLandingPage';
 import Dashboard from './components/Dashboard';
-import Blog from './components/BlogModal/Blog';
-
-
-
 
 function App() {
   const dispatch = useDispatch()
@@ -27,12 +23,6 @@ function App() {
         </Route>
         <Route path='/dashboard'>
           <Dashboard />
-        </Route>
-        <Route path='/blog'>
-          <Blog/>
-        </Route>
-        <Route path='/blog/:id'>
-          <Blog/>
         </Route>
       </Switch>
       )}

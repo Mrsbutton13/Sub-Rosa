@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import * as sessionActions from '../../store/session'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useParams } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchDashboards, } from '../../store/dashboard'
 import {  fetchPosts } from '../../store/post'
+import PostFormModal from '../PostLayout'
 import PostLayout from '../PostLayout/post'
+import './Dashboard.css'
+
 
 function Dashboard () {
 
   const dispatch = useDispatch()
   const dashboards = useSelector((store) => Object.values(store.dashboards))
-  const posts = useSelector((store) => Object.values(store.posts))
+  const posts = useSelector((store) => store.posts.posts)
   const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
@@ -28,15 +31,20 @@ function Dashboard () {
   return(
     <>
       <div className='main-container'>
-        <div className='hfa'>
-          <ul className='posts'>
-            {posts.map((post) => {
-              <div key={post}>
-                <PostLayout/>
-              </div> 
-            })}
-          </ul>
+        <div className='add-post'>
+          <button className='text'>
+            <PostFormModal/>
+          </button>
+          <button className='image'>
+            <PostFormModal/>
+          </button>
+          <button className='video'>
+           <PostFormModal/>
+          </button>
         </div>
+      <main className='posts'>
+          <PostLayout/>
+      </main>
       </div>
     </>
     )

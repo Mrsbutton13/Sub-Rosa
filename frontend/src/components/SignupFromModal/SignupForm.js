@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import './SignupForm.css'
 import * as sessionActions from '../../store/session'
 
 
@@ -32,56 +32,61 @@ function SignupForm () {
     const file = e.target.files[0];
     if (file) {
         setImage(file);
-    } else {
-        setImage('https://mysubrosa.s3.amazonaws.com/1614135914592.png')
-    }
+    } 
   };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx)=> 
-                <li key={idx}>{error}</li>
-                )}
-            </ul>
-            <label>
-                Email
-                <input
-                type='text'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+      <>
+        <div className='sr'>SR</div>
+        <form className='sign-up' onSubmit={handleSubmit}>
+          <ul>
+              {errors.map((error, idx)=> 
+              <li key={idx}>{error}</li>
+              )}
+          </ul>
+          <label className='email-label'>
+            Email:
+          <input
+              className='email-input'
+              type='text'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              />
+              </label>
+          <label className='username-label'>
+            Username:
+          <input
+              className='username-input'
+              type='text'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              />
+              </label>
+          <label className='password-label'>
+            Password:
+          <input
+            className='password-input'
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             />
             </label>
-            <label>
-                Username
-                <input
-                type='text'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+          <label className='confirm-label'>
+            Confirm Password:
+          <input
+            className='confirm-input'
+            type='password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             />
             </label>
-            <label>
-                Password
-                <input
-                type='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                type='password'
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            </label>
-            <label>
-                Upload a profile image. 
-                <input type='file' onChange={updateFile} />
-            </label>
-            <button type='submit'>Get Started</button>
+          <label className='image-label'>
+            Upload a profile image:
+          </label>
+          <input className='image-input' type='file' onChange={updateFile} />
+          <button className='submit' type='submit'>Get Started</button>
         </form>
+      </>
     )
 
 }

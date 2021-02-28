@@ -1,41 +1,50 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import {  fetchPosts } from '../../store/post'
+import { NavLink, useParams } from 'react-router-dom'
+import { fetchPosts } from '../../store/post'
+import { fetchUsers } from '../../store/user'
+import './Post.css'
 
 
 const PostLayout = () => {
-    const {id}= useParams
     const dispatch = useDispatch()
-    const posts = useSelector ((store) => Object.values(store.posts))
-    const post = posts.find((post) => post.id.toString() === id)
+    const posts = useSelector ((store) => store.posts.posts)
+  
+   const users = useSelector(state => state.users.users)
+    console.log(users)
+
+    useEffect(() => {
+      dispatch(fetchUsers())
+    }, [dispatch])
+
     useEffect (() => {
     dispatch(fetchPosts())
   },[dispatch])
-    let title
-    if(post.textTitle) {
-        title = post.textTitle
-    } else if (post.videoText){
-        title = post.videoText
-    } else if(post.imgText) {
-        title = post.imgText
-    } else {
-        title = post.linkText
-    }
-    let body
-    if(post.textBody) {
-        body = post.textBody
-    } else if (post.video){
-        body = post.video
-    } else if(post.imgSrc) {
-        body = post.imgSrc
-    } else {
-        body = post.link
-    }
+
     return (
         <>
-        <h2 className='post-title'>{title}</h2>
-        <div className='post-body'>{body}</div>
+          <div className='individual'>
+              {users?.map((user, id) => {
+                return (
+                  <>
+                    {posts?.map((post, id) =>{
+                      if(user.id === post.userId){
+                        return(
+                          <>
+                            <div key={user.id} className='username'>
+                              <span>{user.username}</span>
+                            </div>
+                            <div key={post.id} className='pb'>
+                              <div className='post-body' key={post.body}>{post.body}</div>
+                            </div>
+                          </>
+                        )
+                      } 
+                    })}
+                  </>      
+                )
+              })}
+          </div>
         </>
     )
 }

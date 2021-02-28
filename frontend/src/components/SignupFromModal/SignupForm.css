@@ -1,0 +1,55 @@
+.sign-up{
+   display: flex;
+   flex-direction: column;
+   justify-content: left;
+   align-items: baseline;
+   padding-left: 10px;
+}
+
+label {
+    font-size: 30px;
+    text-align: left;
+    font-family: 'Akaya Telivigala',
+    cursive;
+}
+input {
+    margin-left: 10px;
+    font-family: 'Akaya Telivigala',
+    cursive;
+    font-size: 20px;
+     height: 24px;
+     width: 225px;
+     border-radius: 4px;
+}
+button:hover{
+    transform: scale(1.2);
+}
+
+.submit{
+      align-self: center;
+      margin-right: 20px;
+      height: 44px;
+      width: 300px;
+      font-size: 25px;
+      font-family: 'Akaya Telivigala',
+      cursive;
+  
+}
+.sr {
+    background-color: #A0220B;
+    color: white;
+    font-size: 200px;
+    font-family: 'Nosifer',
+        cursive;
+    text-align: center;
+    height: 300px;
+    border-radius: 4px;
+}
+
+.image-input{
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 300px;
+}
+

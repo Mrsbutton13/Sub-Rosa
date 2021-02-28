@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal } from '../../context/Modal'
 import PostForm from './PostForm'
-
+import '../Dashboard/Dashboard.css'
 
 function PostFormModal() {
     const [showModal, setShowModal] = useState(false)

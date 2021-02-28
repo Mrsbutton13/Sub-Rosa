@@ -49,3 +49,12 @@ button:hover{
 .video{
     color:#193540;
 }
+
+.post-buttons{
+    border: none;
+    display: flex;
+    flex-direction: row;
+    background-color: #d2d6d1;
+    justify-content:space-evenly;
+  
+}

@@ -32,15 +32,7 @@ function Dashboard () {
     <>
       <div className='main-container'>
         <div className='add-post'>
-          <button className='text'>
             <PostFormModal/>
-          </button>
-          <button className='image'>
-            <PostFormModal/>
-          </button>
-          <button className='video'>
-           <PostFormModal/>
-          </button>
         </div>
       <main className='posts'>
           <PostLayout/>

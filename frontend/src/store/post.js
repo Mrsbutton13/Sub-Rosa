@@ -20,7 +20,7 @@ export const createPost =(post) => async(dispatch) => {
     })
     const data = await response.json()
     dispatch(addPost(data.post))
-    return data
+    return response
 } 
 
 export const fetchPosts = () => async(dispatch) => {
@@ -40,7 +40,7 @@ function postReducer(state = initialState, action) {
             return newState
         case ADD_POST:
             newState = Object.assign({}, state)
-            newState['posts'] = action.payload
+            newState['post'] = action.payload
             return newState
         default:
             return state

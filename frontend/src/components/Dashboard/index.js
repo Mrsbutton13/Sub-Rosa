@@ -32,7 +32,7 @@ function Dashboard () {
     <>
       <div className='main-container'>
         <div className='add-post'>
-            <PostFormModal/>
+           <PostFormModal/>
         </div>
       <main className='posts'>
           <PostLayout/>

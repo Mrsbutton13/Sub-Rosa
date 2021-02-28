@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPost } from '../../store/post'
+import { createPost, fetchPosts } from '../../store/post'
 import * as sessionActions from '../../store/session'
 
 
@@ -10,7 +10,7 @@ function PostForm() {
   const userId = sessionUser.id
   
   const [body, setBody] = useState('')
-  
+  const [errors, setErrors] = useState('')
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -19,6 +19,7 @@ function PostForm() {
       userId,
     }
   dispatch(createPost(post))
+  dispatch(fetchPosts())
   setBody('')
   }
 
@@ -30,7 +31,7 @@ function PostForm() {
       onChange={e=> setBody(e.target.value)}
       placeholder='Your post here'
       />
-      <input type='submit' value='submit'/>
+      <button type='submit' value='submit'/>
     </form>
   )
 }

@@ -1,5 +1,5 @@
 const express = require('express')
-const { Dashboard, Post,  User, sequelize} = require('../../db/models')
+const { Dashboard, Post,  User, Comment, sequelize} = require('../../db/models')
 const asyncHandler = require('express-async-handler')
 const { restoreUser } = require('../../utils/auth')
 const router = express.Router()
@@ -7,9 +7,14 @@ const Op = sequelize.Op
 
 router.get('/', asyncHandler(async (req, res) => {
     const dashboards = await Dashboard.findAll()
-    const posts = await Post.findAll()
+    const posts = await Post.findAll({
+        order: [['createdAt', 'DESC']]
+    })
     const users = await User.findAll()
-    return res.json({dashboards, posts, users})   
+    const comments = await Comment.findAll({
+        order: [['createdAt', 'DESC']]
+    })
+    return res.json({dashboards, posts, users, comments})   
 }))
 
 router.get('/:id(\\d+)', asyncHandler (async (req, res) => {
@@ -31,6 +36,16 @@ router.post('/', asyncHandler (async(req, res) => {
      
     })
     res.json({ post })
+}))
+
+router.post('/', asyncHandler(async(req, res) => {
+    const{ text, userId, postId } = req.body
+    const comment = await Comment.create({
+        text,
+        userId,
+        postId
+    })
+    res.json({comment})
 }))
 
 // router.get('/', asyncHandler(async(req,res) => {

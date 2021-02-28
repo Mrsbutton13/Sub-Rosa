@@ -30,16 +30,20 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  padding-top: 30px;
 }
 
-.username-link {
+.username-div {
     background-color: #d2d6d1;
     font-family: 'Akaya Telivigala',
     cursive; 
-    margin-left: 10px;
     font-size: 20px;
     text-decoration: none;
     color: black;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding-left: 15px;
+    padding-top: 20px;
 }
 
 .username {

@@ -10,7 +10,6 @@ module.exports = {
         username: 'Demo-lition',
         hashedPassword: bcrypt.hashSync('password'),
         profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png',
-        
       },
       {
         email: faker.internet.email(),
@@ -36,6 +35,68 @@ module.exports = {
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
         profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
       },
+      {
+        email: faker.internet.email(),
+        username: 'Scarlet Witch',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Agatha Harkness',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Vision',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Dr. Strange',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Jane Foster',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Black Panther',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Wolverine',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Captain Marvel',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Ant-Man',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Punisher',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        profileImgUrl: 'https://mysubrosa.s3.amazonaws.com/1614135914592.png'
+      },
+      
+
     ])
   },
 

@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation'
 import SplashPage from './components/SplashLandingPage';
-
+import Dashboard from './components/Dashboard';
 
 function App() {
   const dispatch = useDispatch()
@@ -18,7 +18,12 @@ function App() {
     <Navigation isLoaded={isLoaded} />
     {isLoaded && (
       <Switch>
+        <Route exact path='/'>
         <SplashPage isLoaded={isLoaded}/>
+        </Route>
+        <Route path='/dashboard'>
+          <Dashboard />
+        </Route>
       </Switch>
       )}
     </>

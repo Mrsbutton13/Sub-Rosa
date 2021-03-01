@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf';
 
+
 const LOGIN_USER = 'session/loginUser';
 const LOGOUT_USER = 'session/logoutUser';
 
@@ -77,7 +78,10 @@ export const signup = (user) => async (dispatch) => {
   return response
 }
 
+
+
 export const logout = () => async (dispatch) => {
+
   const response = await csrfFetch('/api/session', {
     method: 'DELETE',
   })

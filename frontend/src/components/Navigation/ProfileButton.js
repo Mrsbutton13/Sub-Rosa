@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import * as sessionActions from '../../store/session'
 
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(false)
+    const history = useHistory()
 
     const openMenu = () => {
         if(showMenu) return
@@ -26,12 +28,14 @@ function ProfileButton({ user }) {
 
     const logout = (e) => {
         e.preventDefault()
+        history.push('/')
         dispatch(sessionActions.logout())
+      
     }
 
     return (
         <>
-        <button onClick={openMenu}>
+        <button className='user-icon' onClick={openMenu}>
             <i className='fas fa-user-circle' />
         </button>
         {showMenu && (
@@ -39,7 +43,7 @@ function ProfileButton({ user }) {
                 <li>{user.username}</li>
                 <li>{user.email}</li>
                 <li>
-                    <button onClick={logout}>Log Out</button>
+                    <button className='logout' onClick={logout}>Log Out</button>
                 </li>
             </ul>
         )}

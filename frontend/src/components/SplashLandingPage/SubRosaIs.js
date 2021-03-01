@@ -3,6 +3,7 @@ import './SplashLanding.css'
 import {Animator, MoveIn, MoveOut} from 'react-scroll-motion'
 
 function SubRosaIs () {
+  
   return (
     <>
       <div className='splash-div3'>

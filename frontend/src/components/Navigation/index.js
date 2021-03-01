@@ -13,8 +13,10 @@ function Navigation ({ isLoaded }) {
     
     if(sessionUser) {
         sessionLinks = (
-            <>
-                <NavLink to='/Dashboard'>Home</NavLink>
+            <>  
+                <button className='home'>
+                    <NavLink className='home' to='/dashboard'>Home</NavLink>
+                </button>
                 <ProfileButton user={sessionUser} />
             </>
         )
@@ -29,7 +31,7 @@ function Navigation ({ isLoaded }) {
 
     return (
         <div className='nav'>
-            <div>
+            <div className='sessionLinks'>
                 {isLoaded && sessionLinks}
             </div>
         </div>

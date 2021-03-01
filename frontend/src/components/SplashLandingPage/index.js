@@ -13,13 +13,11 @@ import Navigation from '../Navigation'
 
 function SplashPage({isLoaded}) {
     const sessionUser = useSelector(state => state.session.user)
-    const ZoomInScrollOut= batch(StickyIn(), FadeIn(), ZoomIn())
-    const FadeUp = batch(Fade(), Move(), Sticky())
 
     let login 
     let createA
     if(sessionUser) {
-        return <Redirect to='/Dashboard'/>
+        return <Redirect to='/dashboard'/>
     } else {
         login = <LoginFormModal />
         createA = <SignupFormModal />
@@ -31,8 +29,10 @@ function SplashPage({isLoaded}) {
                   <h1 className='Sub-Rosa'>Sub-Rosa</h1>
                   <section className='splash-section'>
                     <div className='note'>
-                      Read other's experiences, look at things, talk about experiences.
-                      Enter the realm of the supernatural. 
+                      Do you believe in ghost? Do you belive in aliens? Do you belive in big foot?
+                      Have you seen something unexplainable and never told anyone? Maybe you feel like 
+                      no one will believe you. Well fear no more, here you can write about your experiences incognito.
+                       Enter the realm of the supernatural. 
                     </div>
                     <div className='splash-sub-div'>
                       <div className='createA'>{isLoaded && createA}</div>

@@ -1,3 +1,64 @@
 .login-form {
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: baseline;
+    padding-left: 10px;
+    padding-top: 45px;
 }
+label {
+    font-size: 20px;
+    text-align: left;
+    font-family: 'Akaya Telivigala',
+    cursive;
+}
+
+input {
+    margin-left: 10px;
+    font-family: 'Akaya Telivigala',
+    cursive;
+    font-size: 20px;
+     height: 24px;
+     width: 225px;
+     border-radius: 4px;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+.submitL {
+    align-self: center;
+    margin-right: 20px;
+    height: 44px;
+    width: 300px;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 4px;
+    font-family: 'Akaya Telivigala',
+    cursive;
+}
+
+.demo{
+    align-self: center;
+    margin-right: 20px;
+    height: 44px;
+    width: 300px;
+    font-size: 25px;
+    margin: 10px;
+    background-color: #5e7783;
+    border-radius: 4px;
+    font-family: 'Akaya Telivigala',
+    cursive;
+}
+
+.sr {
+    background-color: #A0220B;
+    color: white;
+    font-size: 200px;
+    font-family: 'Nosifer',
+        cursive;
+    text-align: center;
+    height: 300px;
+    border-radius: 4px;
+}
+

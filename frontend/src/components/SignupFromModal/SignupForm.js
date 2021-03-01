@@ -79,11 +79,11 @@ function SignupForm () {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             />
-            </label>
           <label className='image-label'>
             Upload a profile image:
           </label>
-          <input className='image-input' type='file' onChange={updateFile} />
+            <input className='image-input' type='file' onChange={updateFile} />
+            </label>
           <button className='submit' type='submit'>Get Started</button>
         </form>
       </>

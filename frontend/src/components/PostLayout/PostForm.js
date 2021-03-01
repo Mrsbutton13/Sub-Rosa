@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createPost, fetchPosts } from '../../store/post'
 import * as sessionActions from '../../store/session'
-
+import { Redirect } from 'react-router-dom'
+import './Post.css'
 
 function PostForm() {
   const dispatch = useDispatch()
@@ -24,14 +25,18 @@ function PostForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='post-form' onSubmit={handleSubmit}>
       <input
+      className='body-input'
       type='text'
       value={body}
       onChange={e=> setBody(e.target.value)}
       placeholder='Your post here'
       />
-      <button type='submit' value='submit'/>
+      <button className='post-submit' type='submit' value='submit'>
+        submit
+        <Redirect to='/dashboard'/>
+      </button>
     </form>
   )
 }

@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 import { Modal } from '../../context/Modal'
-import TextPostForm from '../TextPostForm'
+import ImagePostForm from '../ImgPostForm'
 import '../Dashboard/Dashboard.css'
 
-function TextFormModal() {
+function ImageFormModal() {
     const [showModal, setShowModal] = useState(false)
 
     return (
         <>
-            <button className='text' onClick={() => setShowModal(true)}>
-            <i class="fas fa-font"></i>
+          <button className='image' onClick={() => setShowModal(true)}>
+            <i class="fas fa-images"></i>
           </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <TextPostForm />
+                    <ImagePostForm />
                 </Modal>
             )}
         </>
     )
 }
 
-export default TextFormModal
+export default ImageFormModal

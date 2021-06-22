@@ -1,38 +1,54 @@
 import React, { useState } from 'react'
-import {createTextPost, setTextPost} from '../../store/textpost'
+import {createImgPost, setImgPost} from '../../store/imgpost'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-function TextPostForm() {
+function ImagePostForm() {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const userId = sessionUser.id 
-  console.log(userId)
 
   const[body, setBody] = useState('')
+  const [img, setImg] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const post = {
       body,
+      img,
       userId,
     }
-    dispatch(createTextPost(post))
-    await dispatch(setTextPost())
+    dispatch(createImgPost(post))
+    await dispatch(setImgPost())
     setBody('')
+    setImg('')
   }
 
-  // const updateBody = (e) => {
-  //   setBody(e.target.value)
-  // }
+  const updateBody = (e) => {
+    setBody(e.target.value)
+  }
+
+  const updateImage = (e) => {
+    const file = e.target.files[0]
+    if(file){
+      setImg(file)
+    }
+  }
 
   return (
     <form className='post-form' onSubmit = {handleSubmit}>
       <input
       className='body-input'
       type='text'
-      onChange={(e) => setBody(e.target.value)}
-      placeholder='Add a Post. '
+      value={body}
+      onChange={updateBody}
+      placeholder='Add a Caption'
+      />
+      <input
+      className='file-input'
+      type='file'
+      accept='image/*'
+      onChange={updateImage}
       />
       <button className='submit'
       type='submit'>Post</button>
@@ -40,4 +56,4 @@ function TextPostForm() {
   )
 }
 
-export default TextPostForm
+export default ImagePostForm

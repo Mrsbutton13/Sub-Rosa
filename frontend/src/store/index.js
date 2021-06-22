@@ -6,6 +6,8 @@ import dashboardReducer from './dashboard';
 import sessionReducer from './session';
 import userReducer from './user';
 import videoPost from './videopost'
+import textPost from './textpost'
+import imgPost from './imgpost'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -13,7 +15,9 @@ const rootReducer = combineReducers({
   // posts: postReducer,
   users: userReducer,
   comments: commentReducer,
-  videoPost
+  videoPost,
+  textPost,
+  imgPost
 })
 
 

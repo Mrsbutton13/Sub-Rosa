@@ -18,7 +18,7 @@ router.post('/',
       body,
       userId
     })
-    res.json({textPost})
+    return res.json({textPost})
   }))
 
 module.exports = router

@@ -1,51 +1,51 @@
 const express = require('express')
-const { Dashboard, Post,  User, Comment, sequelize} = require('../../db/models')
+const { Dashboard, Videopost,  User, sequelize} = require('../../db/models')
 const asyncHandler = require('express-async-handler')
 const { restoreUser } = require('../../utils/auth')
 const router = express.Router()
 const Op = sequelize.Op
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
 
 router.get('/', asyncHandler(async (req, res) => {
-    const dashboards = await Dashboard.findAll()
-    const posts = await Post.findAll({
+    const videoPosts = await Videopost.findAll({
         order: [['createdAt', 'DESC']]
     })
     const users = await User.findAll()
-    const comments = await Comment.findAll({
-        order: [['createdAt', 'DESC']]
-    })
-    return res.json({dashboards, posts, users, comments})   
+    return res.json({videoPosts, users})   
 }))
 
-router.get('/:id(\\d+)', asyncHandler (async (req, res) => {
-    const dashboardId = req.params.id
-    const myDashboard = await Dashboard.findByPk(dashboardId, {
-        include: [User, ]
-    })
-    const userId = myDashboard.userId
-    const username = User.findByPk(userId)
-    return res.json({myDashboard, username, posts})
+// router.get('/:id(\\d+)', asyncHandler (async (req, res) => {
+//     const dashboardId = req.params.id
+//     const myDashboard = await Dashboard.findByPk(dashboardId, {
+//         include: [User, ]
+//     })
+//     const userId = myDashboard.userId
+//     const username = User.findByPk(userId)
+//     return res.json({myDashboard, username, posts})
     
-}))
+// }))
 
-router.post('/', asyncHandler (async(req, res) => {
+router.post('/',
+    singleMulterUpload('img'),
+    asyncHandler (async(req, res) => {
     const { body, userId } = req.body
-    const post = await Post.create({
+    const img = await singlePublicFileUpload(req.file)
+    const imgPost = await Imgpost.create({
+        img,
         body,
         userId,
-     
     })
-    res.json({ post })
+    res.json({ imgPost })
 }))
 
 router.post('/', asyncHandler(async(req, res) => {
-    const{ text, userId, postId } = req.body
-    const comment = await Comment.create({
+    const{ text, userId, textPostId } = req.body
+    const textComment = await Textcomment.create({
         text,
         userId,
-        postId
+        textPostId
     })
-    res.json({comment})
+    res.json({textComment})
 }))
 
 // router.get('/', asyncHandler(async(req,res) => {

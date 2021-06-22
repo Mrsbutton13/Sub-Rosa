@@ -1,6 +1,6 @@
 'use strict';
 
-const { Validator} = require('sequelize');
+const { Validator } = require("sequelize");
 const bcrypt = require('bcryptjs')
 
 module.exports = (sequelize, DataTypes) => {
@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [4, 30],
         isNotEmail(value) {
-          if (Validator.isEmail(value)) {
-            throw new Error('Cannot be an email.')
+          if(Validator.isEmail(value)) {
+            throw new Error('Cannot be an email')
           }
         },
       },
@@ -21,17 +21,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 256]
+        len:[3, 256]
       },
-    },    
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
       validate: {
         len: [60, 60]
-      },
+      }
+    }, 
+    avatar: {
+      type: DataTypes.TEXT,
     },
-  },
+    
+  }, 
   {
     defaultScope: {
       attributes: {
@@ -46,16 +50,18 @@ module.exports = (sequelize, DataTypes) => {
         attributes: {}
       },
     },
-    profileImgUrl: {
-      type: DataTypes.STRING,
-    },
-  }, {});
+  });
   User.associate = function(models) {
-    User.hasOne(models.Dashboard, {foreignKey: 'userId'})
-    User.hasMany(models.Post, {foreignKey: 'userId'})
-    User.hasMany(models.Comment, {foreignKey: 'userId'})
     
-  };
+    User.hasMany(models.Videopost, {foreignKey: 'userId'})
+    User.hasMany(models.Videocomment, {foreignKey: 'userId'})
+    User.hasMany(models.Imgpost, {foreignKey: 'userId'})
+    User.hasMany(models.Imgcomment, {foreignKey: 'userId'})
+    User.hasMany(models.Textpost, {foreignKey: 'userId'})
+    User.hasMany(models.Textcomment, {foreignKey: 'userId'})
+    User.hasMany(models.Follow, {foreignKey: 'followId'})
+    User.hasMany(models.Follow, {foreignKey: 'userId'})
+  }
   
   User.prototype.toSafeObject = function () {
     const { id, username, email } = this
@@ -82,17 +88,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  User.signup = async function ({ username, email, password, profileImgUrl }) {
+  User.signup = async function ({ username, email, password, avatar }) {
     const hashedPassword = bcrypt.hashSync(password)
     const user = await User.create({
       username,
       email,
       hashedPassword,
-      profileImgUrl
+      avatar
     })
     return await User.scope('currentUser').findByPk(user.id)
   }
-
 
   return User;
 };

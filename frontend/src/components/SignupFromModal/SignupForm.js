@@ -12,18 +12,20 @@ function SignupForm () {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [image, setImage] = useState(null);
+    const [avatar, setAvatar] = useState(null);
     const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(password === confirmPassword) {
             setErrors([])
-            return dispatch(sessionActions.signup({ email, username, password, image }))
+            return dispatch(sessionActions.signup({ email, username, password, avatar }))
                 .catch(async (res) => {
                     const data = await res.json()
                     if(data && data.errors) setErrors(data.errors)
                 })
+        } else if (email && username && password && !(avatar)){
+          return setErrors(['Please upload an Image'])
         }
         return setErrors(['Password fields must be the same. '])
     }
@@ -31,7 +33,7 @@ function SignupForm () {
      const updateFile = (e) => {
     const file = e.target.files[0];
     if (file) {
-        setImage(file);
+        setAvatar(file);
     } 
   };
 
@@ -82,7 +84,11 @@ function SignupForm () {
           <label className='image-label'>
             Upload a profile image:
           </label>
-            <input className='image-input' type='file' onChange={updateFile} />
+            <input 
+            className='image-input' 
+            type='file' 
+            accept='image/*' 
+            onChange={updateFile} />
             </label>
           <button className='submit' type='submit'>Get Started</button>
         </form>

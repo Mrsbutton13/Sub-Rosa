@@ -30,12 +30,12 @@ const validateSignup = [
 
 router.post(
     '/',
-    singleMulterUpload('image'),
+    singleMulterUpload('avatar'),
     validateSignup,
     asyncHandler(async(req, res) => {
         const { email, password, username } = req.body
-        const profileImgUrl = await singlePublicFileUpload(req.file)
-        const user = await User.signup({ email, username, password, profileImgUrl })
+        const avatar = await singlePublicFileUpload(req.file)
+        const user = await User.signup({ email, username, password, avatar })
         await setTokenCookie(res, user)
 
         return res.json({
@@ -44,19 +44,19 @@ router.post(
     })
 )
 
-router.post(
-    '/',
-    asyncHandler(async (req, res) => {
-        const { email, password, username } = req.body
-        const user = await User.signup({ email, username, password, profileImgUrl })
+// router.post(
+//     '/',
+//     asyncHandler(async (req, res) => {
+//         const { email, password, username } = req.body
+//         const user = await User.signup({ email, username, password, avatar })
         
-        await setTokenCookie(res, user)
+//         await setTokenCookie(res, user)
 
-        return res.json({
-            user,
-        })
-    })
-)
+//         return res.json({
+//             user,
+//         })
+//     })
+// )
 
 
 module.exports = router

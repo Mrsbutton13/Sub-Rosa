@@ -9,34 +9,27 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true,
+        type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING(256),
-        allowNull: false,
-        unique: true
+        type: Sequelize.STRING
       },
       hashedPassword: {
-        type: Sequelize.STRING.BINARY,
-        allowNull: false,
-      
+        type: Sequelize.STRING
       },
-      profileImgUrl: {
-        type: Sequelize.STRING,
-        defaultValue: Sequelize.STRING
-        
+      avatar: {
+        type: Sequelize.TEXT
+      },
+      bio: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        type: Sequelize.DATE
       }
     });
   },

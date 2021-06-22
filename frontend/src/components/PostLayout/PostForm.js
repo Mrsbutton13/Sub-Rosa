@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPost, fetchPosts } from '../../store/post'
+// import { createPost, fetchPosts } from '../../store/imgpost'
 import * as sessionActions from '../../store/session'
 import { Redirect } from 'react-router-dom'
 import './Post.css'
@@ -19,8 +19,8 @@ function PostForm() {
       body,
       userId,
     }
-  dispatch(createPost(post))
-  dispatch(fetchPosts())
+  // dispatch(createPost(post))
+  // dispatch(fetchPosts())
   setBody('')
   }
 

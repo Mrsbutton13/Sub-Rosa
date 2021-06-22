@@ -3,8 +3,8 @@ import * as sessionActions from '../../store/session'
 import { Redirect, useParams } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { fetchDashboards, } from '../../store/dashboard'
-import {  fetchPosts } from '../../store/post'
-import PostFormModal from '../PostLayout'
+// import {  fetchPosts } from '../../store/post'
+import VideoPostModal from '../VideoPostModal'
 import PostLayout from '../PostLayout/post'
 import './Dashboard.css'
 
@@ -13,7 +13,7 @@ function Dashboard () {
 
   const dispatch = useDispatch()
   const dashboards = useSelector((store) => Object.values(store.dashboards))
-  const posts = useSelector((store) => store.posts.posts)
+  // const posts = useSelector((store) => store.posts.posts)
   const sessionUser = useSelector(state => state.session.user)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function Dashboard () {
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(fetchPosts())
+    // dispatch(fetchPosts())
   },[dispatch])
 
   if(!sessionUser) {
@@ -32,10 +32,10 @@ function Dashboard () {
     <>
       <div className='main-container'>
         <div className='add-post'>
-           <PostFormModal/>
+           <VideoPostModal/>
         </div>
       <main className='posts'>
-          <PostLayout/>
+          {/* <PostLayout/> */}
       </main>
       </div>
     </>

@@ -19,7 +19,7 @@ function UserCard ({user}) {
       <img className='blog-img' src={user?.avatar}/>
       <div className='user-info'>
         <NavLink className='user-page-link' to={`/users/${user?.id}`}>{user?.username}</NavLink>
-        <span className='user-bio'>{user?.username}</span>
+        <span className='user-bio'>{user?.bio}</span>
       </div>
       </div>
       {users.map(person => (

@@ -6,6 +6,9 @@ const { User } = require('../../db/models')
 const { check } = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation')
 const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
+const Sequelize=require('sequelize')
+const Op = Sequelize.Op
+
 
 const router = express.Router()
 
@@ -46,9 +49,17 @@ router.post(
 )
 
 
-router.get('/', 
+router.get('/',
+    restoreUser,
     asyncHandler(async (req, res) => {
-    const users = await User.findAll()
+    const user = req.user 
+    const users = await User.findAll({
+        where: {
+            [Op.not]: {
+                id: user.id
+            }
+        }
+    })
     return res.json({ users })   
 }))
 

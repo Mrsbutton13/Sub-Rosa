@@ -16,8 +16,8 @@
 }
 
 .blog-img {
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 4px;
 }
 
@@ -26,11 +26,22 @@
   flex-direction: column;
   color: white;
   margin-left: 10px;
+  font-family: 'Akaya Telivigala',
+  cursive;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.user-page-link{
+  text-decoration: none;
 }
 
 .follow{
   color: rgb(70, 70, 245);
   cursor: pointer;
+  font-family: 'Akaya Telivigala',
+  cursive;
+  font-size: 20px;
 }
 
 

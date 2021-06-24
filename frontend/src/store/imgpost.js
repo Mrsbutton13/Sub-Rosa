@@ -1,7 +1,7 @@
 import {csrfFetch} from './csrf'
 
-const GET_IMG_POSTS = 'imgPost/GET_IMG_POSTS'
-const ADD_IMG_POSTS = 'imgPost/ADD_IMG_POSTS'
+const GET_IMG_POSTS = 'imgPost/getImgPosts'
+const ADD_IMG_POSTS = 'imgPost/addImgPosts'
 
 const getImgPosts =(imgPost) => ({
   type: GET_IMG_POSTS,
@@ -15,6 +15,13 @@ const addImgPosts = (imgPost) => ({
 
 export const setImgPost = () => async(dispatch) => {
   const res = await csrfFetch('/api/imgPosts')
+  const data = await res.json()
+  dispatch(getImgPosts(data.imgPost))
+  return res
+}
+
+export const getOneUsersImg = (userId) => async(dispatch) => {
+  const res = await csrfFetch(`/api/imgPosts/${userId}`)
   const data = await res.json()
   dispatch(getImgPosts(data.imgPost))
   return res

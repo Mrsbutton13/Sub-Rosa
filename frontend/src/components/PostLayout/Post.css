@@ -1,23 +1,13 @@
-.individual{
-        margin-top: 10px;
-        max-height: 870px;
-        max-width: 500px;
-        overflow: scroll;
-       
-}
-.individual::-webkit-scrollbar{
-    display: none;
-}
-
 .post-body {
-    background-color: #d2d6d1;
-    min-height: 300px;
-    width: 300px;
-    hyphens: auto;
-    font-size: 30px;
-    text-align: center;
-    font-family: 'Akaya Telivigala',
-    cursive;
+   background-color: #d2d6d1;
+   height: fit-content;
+   hyphens: auto;
+   font-size: 22px;
+   font-family: 'Akaya Telivigala',
+   cursive;
+   padding-bottom: 20px;
+   padding-left: 15px;
+   padding-top: 15px;
 }
 
 .pb {
@@ -44,6 +34,8 @@
     border-top-right-radius: 4px;
     padding-left: 15px;
     padding-top: 20px;
+    border-bottom: 1px solid rgb(165, 164, 164);
+    padding-bottom: 15px;
 }
 
 .username {
@@ -52,15 +44,52 @@
     background-color: #d2d6d1;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    margin-right: 20px;
 }
 
 a:hover {
     transform: scale(1.2);
 }
 
-.img{
-    height: 50px;
-    width: 50px;
+.user-img{
+    height: 70px;
+    max-height: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    width: 70px;
+    margin-right: 30px;
+    min-width: 70px;
+    border-radius: 4px;
 }
 
+.post-div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.inner-post{
+    width: 500px;
+}
+
+.post-img {
+    width: 500px;
+
+}
+
+.post-video {
+    width: 500px;
+}
+
+
+.post-source {
+   background-color: #d2d6d1;
+   color: grey;
+   font-size: 18px;
+   height: 40px;
+   border-bottom-left-radius: 4px;
+   border-bottom-right-radius: 4px;
+   padding-left: 20px;
+   padding-top: 30px;
+}
 

@@ -1,7 +1,7 @@
 import {csrfFetch} from './csrf'
 
-const GET_COMMENTS = 'comments/GET_COMMENTS'
-const ADD_COMMENT = 'comment/ADD_COMMENT'
+const GET_COMMENTS = 'comments/getComments'
+const ADD_COMMENT = 'comment/addComment'
 
 const getComments = (comments) => ({
     type: GET_COMMENTS,

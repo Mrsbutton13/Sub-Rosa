@@ -1,7 +1,7 @@
 import {csrfFetch} from './csrf'
 
-const GET_VIDEO_POSTS = 'videoPosts/GET_VIDEO_POSTS'
-const ADD_VIDEO_POSTS = 'videoPosts/ADD_VIDEO_POSTS'
+const GET_VIDEO_POSTS = 'videoPost/getVideoPosts'
+const ADD_VIDEO_POSTS = 'videoPost/addVideoPosts'
 
 const getVideoPosts =(videoPost) => ({
   type: GET_VIDEO_POSTS,
@@ -15,6 +15,12 @@ const addVideoPosts = (videoPost) => ({
 
 export const setVideoPost = () => async(dispatch) => {
   const res = await csrfFetch('/api/videoPosts')
+  const data = await res.json()
+  dispatch(getVideoPosts(data.videoPost))
+  return res
+}
+export const getOneUsersVideo = (userId) => async(dispatch) => {
+  const res = await csrfFetch(`/api/videoPosts/${userId}`)
   const data = await res.json()
   dispatch(getVideoPosts(data.videoPost))
   return res
@@ -39,6 +45,7 @@ export const createVideoPost = (videoPost) => async(dispatch) => {
   dispatch(addVideoPosts(data.videoPost))
   return response
 }
+
 
 function Reducer(state ={}, action) {
   let newState

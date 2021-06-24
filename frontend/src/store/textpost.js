@@ -1,7 +1,7 @@
 import {csrfFetch} from './csrf'
 
-const GET_TEXT_POSTS = 'textPost/GET_TEXT_POSTS'
-const ADD_TEXT_POSTS = 'textPost/ADD_TEXT_POSTS'
+const GET_TEXT_POSTS = 'textPost/getTextPosts'
+const ADD_TEXT_POSTS = 'textPost/addTextPosts'
 
 const getTextPosts =(textPost) => ({
   type: GET_TEXT_POSTS,
@@ -20,24 +20,13 @@ export const setTextPost = () => async(dispatch) => {
   return res
 }
 
-// export const createTextPost = (textPost) => async(dispatch) => {
-//   const {body, userId} = textPost
-//   const formData = new FormData()
-//   formData.append('body', body)
-//   formData.append('userId', userId)
-//   const response = await csrfFetch('/api/textPosts', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//     },
-//     body: formData,
-//   })
-
-//   const data = await response.json()
-//   console.log(data)
-//   dispatch(addTextPosts(data.textPost))
-//   return response
-// }
+export const getOneUsersText = (userId) => async(dispatch) => {
+  const res = await csrfFetch(`/api/textPosts/${userId}`)
+  const data = await res.json()
+  console.log(data)
+  dispatch(getTextPosts(data.textPost))
+  return res
+}
 
 export const createTextPost = (textPost) => async(dispatch) => {
   const response = await csrfFetch('/api/textPosts', {

@@ -1,4 +1,5 @@
 const express = require('express')
+const {restoreUser} = require('../../utils/auth')
 const asyncHandler = require('express-async-handler')
 const { setTokenCookie, requireAuth } = require('../../utils/auth')
 const { User } = require('../../db/models')
@@ -33,9 +34,9 @@ router.post(
     singleMulterUpload('avatar'),
     validateSignup,
     asyncHandler(async(req, res) => {
-        const { email, password, username } = req.body
+        const { email, password, bio, username } = req.body
         const avatar = await singlePublicFileUpload(req.file)
-        const user = await User.signup({ email, username, password, avatar })
+        const user = await User.signup({ email, username, password, bio, avatar })
         await setTokenCookie(res, user)
 
         return res.json({
@@ -44,19 +45,26 @@ router.post(
     })
 )
 
-// router.post(
-//     '/',
-//     asyncHandler(async (req, res) => {
-//         const { email, password, username } = req.body
-//         const user = await User.signup({ email, username, password, avatar })
-        
-//         await setTokenCookie(res, user)
 
-//         return res.json({
-//             user,
-//         })
-//     })
-// )
+router.get('/', 
+    asyncHandler(async (req, res) => {
+    const users = await User.findAll()
+    return res.json({ users })   
+}))
+
+router.get(
+    '/user',
+    restoreUser,
+    asyncHandler(async(req, res) => {
+        const currentUser = req.user 
+        const user = await User.findOne({
+            where: {
+                id: currentUser.id 
+            }
+        })
+        return res.json({user})
+    })
+)
 
 
 module.exports = router

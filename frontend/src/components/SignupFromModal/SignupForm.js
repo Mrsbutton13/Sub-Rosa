@@ -11,6 +11,7 @@ function SignupForm () {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [bio, setBio] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [avatar, setAvatar] = useState(null);
     const [errors, setErrors] = useState([])
@@ -19,7 +20,7 @@ function SignupForm () {
         e.preventDefault()
         if(password === confirmPassword) {
             setErrors([])
-            return dispatch(sessionActions.signup({ email, username, password, avatar }))
+            return dispatch(sessionActions.signup({ email, bio, username, password, avatar }))
                 .catch(async (res) => {
                     const data = await res.json()
                     if(data && data.errors) setErrors(data.errors)
@@ -62,6 +63,15 @@ function SignupForm () {
               type='text'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              />
+              </label>
+              <label className='username-label'>
+            Bio:
+          <input
+              className='username-input'
+              type='text'
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
               />
               </label>
           <label className='password-label'>

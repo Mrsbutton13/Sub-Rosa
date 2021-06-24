@@ -58,7 +58,8 @@ router.get('/',
             [Op.not]: {
                 id: user.id
             }
-        }
+        },
+        limit: 4
     })
     return res.json({ users })   
 }))

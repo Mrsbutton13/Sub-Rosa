@@ -29,10 +29,12 @@ function SplashPage({isLoaded}) {
                   <h1 className='Sub-Rosa'>Sub-Rosa</h1>
                   <section className='splash-section'>
                     <div className='note'>
-                      Do you believe in ghost? Do you belive in aliens? Do you belive in big foot?
-                      Have you seen something unexplainable and never told anyone? Maybe you feel like 
-                      no one will believe you. Well fear no more, here you can write about your experiences incognito.
-                       Enter the realm of the supernatural. 
+                      Do you believe in ghost? Do you believe in aliens? 
+                      Have you seen something unexplainable 
+                      and never told anyone? Maybe you feel like 
+                      no one will believe you. Well fear no more, 
+                      here you can write about your experiences incognito.
+                      Enter the realm of the supernatural. 
                     </div>
                     <div className='splash-sub-div'>
                       <div className='createA'>{isLoaded && createA}</div>

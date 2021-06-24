@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import {createTextPost, setTextPost} from '../../store/textpost'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import '../LoginFormModal/LoginForm.css'
 
 
 function TextPostForm() {
+  const history = useHistory()
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const userId = sessionUser.id 
-  console.log(userId)
 
   const[body, setBody] = useState('')
 
@@ -20,6 +22,7 @@ function TextPostForm() {
     dispatch(createTextPost(post))
     await dispatch(setTextPost())
     setBody('')
+    history.push('/')
   }
 
   // const updateBody = (e) => {
@@ -27,16 +30,19 @@ function TextPostForm() {
   // }
 
   return (
-    <form className='post-form' onSubmit = {handleSubmit}>
+    <>
+    <div className='sr'>SR</div>
+    <form className='login-form' onSubmit = {handleSubmit}>
       <input
       className='body-input'
       type='text'
       onChange={(e) => setBody(e.target.value)}
       placeholder='Add a Post. '
       />
-      <button className='submit'
+      <button className='submitL'
       type='submit'>Post</button>
     </form>
+    </>
   )
 }
 

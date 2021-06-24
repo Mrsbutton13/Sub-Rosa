@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import {createImgPost, setImgPost} from '../../store/imgpost'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { useHistory } from 'react-router-dom'
+import './PostForm.css'
+import '../LoginFormModal/LoginForm.css'
 
 function ImagePostForm() {
+  const history = useHistory()
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
   const userId = sessionUser.id 
@@ -22,6 +25,7 @@ function ImagePostForm() {
     await dispatch(setImgPost())
     setBody('')
     setImg('')
+    history.push('/')
   }
 
   const updateBody = (e) => {
@@ -36,7 +40,9 @@ function ImagePostForm() {
   }
 
   return (
-    <form className='post-form' onSubmit = {handleSubmit}>
+    <>
+    <div className='sr'>SR</div>
+    <form className='login-form' onSubmit = {handleSubmit}>
       <input
       className='body-input'
       type='text'
@@ -50,9 +56,10 @@ function ImagePostForm() {
       accept='image/*'
       onChange={updateImage}
       />
-      <button className='submit'
+      <button className='submitL'
       type='submit'>Post</button>
     </form>
+    </>
   )
 }
 

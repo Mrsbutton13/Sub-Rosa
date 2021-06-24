@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation'
 import SplashPage from './components/SplashLandingPage';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard'
+import User from './components/User'
 
 function App() {
   const dispatch = useDispatch()
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path='/dashboard'>
           <Dashboard />
+        </Route>
+        <Route path='/users/:userId' exact={true}>
+          <User/>
         </Route>
       </Switch>
       )}

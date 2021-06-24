@@ -4,6 +4,7 @@ import { csrfFetch } from './csrf';
 const LOGIN_USER = 'session/loginUser';
 const LOGOUT_USER = 'session/logoutUser';
 
+
 const loginUser = (user) => {
   return {
     type: LOGIN_USER,
@@ -32,6 +33,8 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
+
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
@@ -53,19 +56,21 @@ const sessionReducer = (state = initialState, action) => {
 export const restoreUser = () => async dispatch => {
   const response = await csrfFetch('/api/session');
   const data = await response.json();
+  
   dispatch(loginUser(data.user));
   return response;
 }
 
 export const signup = (user) => async (dispatch) => {
-  const {image, username, email, password} = user
+  const {avatar, username, email, bio, password} = user
   const formData = new FormData()
   formData.append("username", username);
   formData.append("email", email);
   formData.append("password", password);
+  formData.append('bio', bio);
 
-  if(image) formData.append('image', image)
-  const response = await csrfFetch(`/api/users/`, {
+  if(avatar) formData.append('avatar', avatar)
+  const response = await csrfFetch(`/api/users`, {
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
@@ -74,6 +79,7 @@ export const signup = (user) => async (dispatch) => {
   });
 
   const data = await response.json()
+  console.log(data)
   dispatch(loginUser(data.user))
   return response
 }

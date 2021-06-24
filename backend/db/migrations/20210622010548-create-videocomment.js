@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Dashboards', {
+    return queryInterface.createTable('Videocomments', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,23 +9,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {model: 'Users'},
+        type: Sequelize.INTEGER
+      },
+      body: {
+        type: Sequelize.TEXT
+      },
+      videoPostId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
+        type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Dashboards');
+    return queryInterface.dropTable('Videocomments');
   }
 };

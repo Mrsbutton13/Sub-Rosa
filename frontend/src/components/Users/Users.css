@@ -1,0 +1,54 @@
+.user-card{
+  height: 50px;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.user-card:hover{
+  background-color: rgb(0, 0, 0, 0.20);
+  height: 60px;
+  
+}
+
+.blog-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+}
+
+.user-info{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-left: 10px;
+  font-family: 'Akaya Telivigala',
+  cursive;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.user-page-link{
+  text-decoration: none;
+}
+
+.follow{
+  color: rgb(70, 70, 245);
+  cursor: pointer;
+  font-family: 'Akaya Telivigala',
+  cursive;
+  font-size: 20px;
+}
+
+
+.user-page-link{
+  color: white;
+}
+
+.other-div{
+  display: flex;
+}

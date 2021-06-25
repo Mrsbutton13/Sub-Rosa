@@ -16,8 +16,9 @@ const videoPosts = useSelector ((store) => Object.values(store.videoPost))
 const textPosts = useSelector ((store) => Object.values(store.textPost))
 const imgPosts = useSelector ((store) => Object.values(store.imgPost))
 const users = useSelector ((store => Object.values(store.users)))
-console.log(textPosts)
+
 const {userId} = useParams()
+
 let otherUser
 {users.map(user=> {
   if(userId == user.id)
@@ -42,7 +43,7 @@ const userPosts = []
   }
 
   const posts = userPosts.sort((a,b) => a.createdAt < b.createdAt ? 1: -1)
-  console.log(posts)
+  
 
  useEffect(async() => {
    await dispatch(getOneUsersImg(userId))

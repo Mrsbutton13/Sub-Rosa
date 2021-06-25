@@ -23,7 +23,6 @@ export const setTextPost = () => async(dispatch) => {
 export const getOneUsersText = (userId) => async(dispatch) => {
   const res = await csrfFetch(`/api/textPosts/${userId}`)
   const data = await res.json()
-  console.log(data)
   dispatch(getTextPosts(data.textPost))
   return res
 }

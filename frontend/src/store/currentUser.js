@@ -12,7 +12,6 @@ export const fetchUser = () => async(dispatch) => {
   const res = await csrfFetch('/api/users/user')
   const data = await res.json()
   dispatch(getUser(data.user))
-  console.log(data)
   return res
 }
 

@@ -16,7 +16,6 @@ const setFollow = (follow) => ({
 export const getFollow = () => async(dispatch) => {
   const res = await csrfFetch('/api/follows')
   const data = await res.json()
-  console.log(data)
   dispatch(setFollow(data.follow))
   return res 
 }
@@ -31,7 +30,6 @@ export const followUser = (follow) => async(dispatch) => {
     })
   })
   const data = await res.json()
-  console.log(data)
   dispatch(addFollow(data.follow))
   return res
 }

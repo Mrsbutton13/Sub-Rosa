@@ -23,7 +23,6 @@ router.post(
     '/',
     validateLogin,
     asyncHandler(async(req, res, next) => {
-        console.log(req.body)
         const { credential, password } = req.body
 
         const user = await User.login({ credential, password })
@@ -81,7 +80,6 @@ router.get(
     (req, res) => {
         const { user } = req
         if(user) {
-            console.log(user, '--------')
             return res.json({
                 user: user.toSafeObject()
             })
